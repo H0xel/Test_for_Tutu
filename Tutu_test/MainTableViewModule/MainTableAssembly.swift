@@ -22,11 +22,11 @@ class MainTableAssembly: Assembly {
 }
 
 extension MainTableAssembly {
-    func presenter(view: MainTableViewController) -> MainTablePresenter {
+    func presenter(view: MainView) -> MainTablePresenter {
         define(init: MainTablePresenterImpl()) {
             $0.view = view
             $0.cryptoCurrencyService = self.cryptoServiceAssembly.cryptoCurrencyService
-            $0.router = self.routerAssembly.router(viewcontroller: view)
+            $0.router = self.routerAssembly.router(viewcontroller: view.viewcontoller)
             return $0
         }
     }

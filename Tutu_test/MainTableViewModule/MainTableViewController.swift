@@ -12,10 +12,15 @@ struct TableViewState {
 }
 
 protocol MainView: AnyObject {
+    var viewcontoller: UIViewController { get }
     var tableViewState: TableViewState? { get set }
 }
 
 class MainTableViewController: UITableViewController, MainView {
+    
+    var viewcontoller: UIViewController {
+        self
+    }
     
     var tableViewState: TableViewState? {
         didSet {
